@@ -1,0 +1,37 @@
+.banner {
+  width: 100%;
+  height: 465px;
+  background: rgb(85, 255, 0);
+
+  position: relative;
+}
+
+.banner > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerContentContainer {
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerContentContainer {
+  position: absolute;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
+}
+
+.bannerContent > h1 {
+  font-size: 47px;
+  margin-bottom: 40px;
+}
+
+.bannerContent > p {
+  font-size: 20px;
+}

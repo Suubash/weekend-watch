@@ -1,0 +1,52 @@
+.header {
+  background: #042541;
+  color: #ffffff;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+}
+
+.header a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header a:hover {
+  color: #ec2227;
+  transition: ease-in-out 0.2s;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+  font-weight: 700;
+}
+
+.linksWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 146px;
+}
+
+.leftLinks {
+  display: flex;
+  align-items: center;
+  gap: 62px;
+}
+
+.searchIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.searchIcon:hover {
+  cursor: pointer;
+  color: #ec2227;
+}
