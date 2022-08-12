@@ -32,9 +32,11 @@
 
 .iconLeftContainer {
   left: 45px;
+  padding-right: 5px;
 }
 .iconRightContainer {
   right: 45px;
+  padding-left: 5px;
 }
 
 .icon {
