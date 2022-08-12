@@ -1,6 +1,7 @@
 import React from "react";
 import { Movie } from "../types/typings";
 import styles from "../styles/thumbnail.module.css";
+import { Rating } from "react-simple-star-rating";
 
 const Thumbnail = (movie: Movie) => {
   const base_url = "https://image.tmdb.org/t/p/w440_and_h660_face";
@@ -18,6 +19,15 @@ const Thumbnail = (movie: Movie) => {
         <p className={styles.releaseDate}>
           {movie.release_date || "Date Unavailable"}
         </p>
+        <div className={styles.ratingComponent}>
+          <Rating
+            initialValue={0}
+            readonly
+            allowHalfIcon
+            size={16}
+            ratingValue={Number(movie.vote_average) * 10}
+          />
+        </div>
       </div>
     </div>
   );
