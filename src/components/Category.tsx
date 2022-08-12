@@ -6,13 +6,15 @@ import Thumbnail from "../components/Thumbnail";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import classnames from "classnames";
 
-const Category = () => {
-  const API_KEY = import.meta.env.VITE_PUBLIC_TMDB_API_KEY;
-  const BASE_URL = "https://api.themoviedb.org/3";
+interface Props {
+  url: string;
+  title?: string;
+}
 
-  const { movies } = useMovies(
-    `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-US`
-  );
+const Category = (props: Props) => {
+  const { url, title } = props;
+
+  const { movies } = useMovies(url);
 
   const moviesRowRef = React.useRef<HTMLDivElement>(null);
 
@@ -29,22 +31,32 @@ const Category = () => {
 
   return (
     <div className={styles.container}>
-      <div
-        onClick={() => handleClickToScroll("left")}
-        className={classnames(styles.iconContainer, styles.iconLeftContainer)}
-      >
-        <FaCaretLeft className={styles.icon} />
-      </div>
-      <div ref={moviesRowRef} className={styles.moviesContainer}>
-        {movies.results.map((movie: Movie) => (
-          <Thumbnail key={movie.id} {...movie} />
-        ))}
-      </div>
-      <div
-        onClick={() => handleClickToScroll("right")}
-        className={classnames(styles.iconContainer, styles.iconRightContainer)}
-      >
-        <FaCaretRight className={styles.icon} />
+      {title && (
+        <div className={styles.titleContainer}>
+          <h2>{title}</h2>
+        </div>
+      )}
+      <div className={styles.moviesWrapper}>
+        <div
+          onClick={() => handleClickToScroll("left")}
+          className={classnames(styles.iconContainer, styles.iconLeftContainer)}
+        >
+          <FaCaretLeft className={styles.icon} />
+        </div>
+        <div ref={moviesRowRef} className={styles.moviesContainer}>
+          {movies.results.map((movie: Movie) => (
+            <Thumbnail key={movie.id} {...movie} />
+          ))}
+        </div>
+        <div
+          onClick={() => handleClickToScroll("right")}
+          className={classnames(
+            styles.iconContainer,
+            styles.iconRightContainer
+          )}
+        >
+          <FaCaretRight className={styles.icon} />
+        </div>
       </div>
     </div>
   );

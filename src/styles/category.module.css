@@ -1,10 +1,15 @@
-.container {
+.moviesWrapper {
   width: 100%;
 
   display: flex;
   align-items: center;
 
   position: relative;
+}
+
+.titleContainer {
+  width: 80%;
+  margin: 20px auto;
 }
 
 .iconContainer {
