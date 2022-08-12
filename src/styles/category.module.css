@@ -19,6 +19,15 @@
   cursor: pointer;
 
   position: absolute;
+  transition: all 0.2s ease-in-out;
+}
+
+.iconContainer:hover {
+  background-color: #e6e6e6;
+}
+
+.iconContainer:hover .icon {
+  color: #a2a7ae;
 }
 
 .iconLeftContainer {

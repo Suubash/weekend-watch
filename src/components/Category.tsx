@@ -14,21 +14,34 @@ const Category = () => {
     `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-US`
   );
 
-  console.log(movies);
+  const moviesRowRef = React.useRef<HTMLDivElement>(null);
+
+  const handleClickToScroll = (direction: string) => {
+    if (moviesRowRef.current) {
+      const { scrollLeft, clientWidth } = moviesRowRef.current;
+      const scrollTo =
+        direction === "right"
+          ? scrollLeft + clientWidth / 1.7
+          : scrollLeft - clientWidth / 1.5;
+      moviesRowRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className={styles.container}>
       <div
+        onClick={() => handleClickToScroll("left")}
         className={classnames(styles.iconContainer, styles.iconLeftContainer)}
       >
         <FaCaretLeft className={styles.icon} />
       </div>
-      <div className={styles.moviesContainer}>
+      <div ref={moviesRowRef} className={styles.moviesContainer}>
         {movies.results.map((movie: Movie) => (
           <Thumbnail key={movie.id} {...movie} />
         ))}
       </div>
       <div
+        onClick={() => handleClickToScroll("right")}
         className={classnames(styles.iconContainer, styles.iconRightContainer)}
       >
         <FaCaretRight className={styles.icon} />
