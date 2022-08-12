@@ -1,7 +1,6 @@
 .banner {
   width: 100%;
   height: 465px;
-  background: rgb(85, 255, 0);
 
   position: relative;
 }
@@ -24,14 +23,41 @@
   position: absolute;
   color: #ffffff;
   text-align: center;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 0px 3px 6px black;
 }
 
 .bannerContent > h1 {
   font-size: 47px;
-  margin-bottom: 40px;
 }
 
 .bannerContent > p {
   font-size: 20px;
+  margin-top: 40px;
+}
+
+.searchContainer {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 6px;
+  border-radius: 40px;
+  margin-top: 40px;
+}
+
+.searchInput {
+  flex-grow: 1;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 10px;
+}
+.searchButton {
+  padding: 12px 30px;
+  background-color: #ec2227;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
 }

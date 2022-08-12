@@ -11,6 +11,14 @@ function Banner() {
         <div className={styles.bannerContent}>
           <h1>Welcome to the weekend watch</h1>
           <p>Millions of Movies, TV Shows and many more</p>
+          <div className={styles.searchContainer}>
+            <input
+              className={styles.searchInput}
+              type="search"
+              placeholder="Search for movies, tv shows, and person"
+            />
+            <button className={styles.searchButton}>Search</button>
+          </div>
         </div>
       </div>
     </div>
