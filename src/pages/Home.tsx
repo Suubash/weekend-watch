@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 import Category from "../components/Category";
+import Loader from "../components/Loader";
 import styles from "../styles/home.module.css";
 import classNames from "classnames";
 
@@ -26,7 +27,7 @@ function Home() {
 
       {/* Movie section */}
       <div className={styles.category}>
-        <React.Suspense fallback="Loading!!">
+        <React.Suspense fallback={<Loader />}>
           <Category
             url={`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-US`}
           />
