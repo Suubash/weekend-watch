@@ -1,8 +1,10 @@
 import React from "react";
 import godzilla from "../assets/godzilla.png";
 import styles from "../styles/banner.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Banner() {
+  const navigate = useNavigate();
   return (
     <div className={styles.banner}>
       <img src={godzilla} alt="Godzila vs Kong" />
@@ -17,7 +19,12 @@ function Banner() {
               type="search"
               placeholder="Search for movies, tv shows, and person"
             />
-            <button className={styles.searchButton}>Search</button>
+            <button
+              onClick={() => navigate("/search")}
+              className={styles.searchButton}
+            >
+              Search
+            </button>
           </div>
         </div>
       </div>

@@ -60,4 +60,10 @@
   color: #ffffff;
   border: none;
   border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.searchButton:hover {
+  opacity: 0.9;
 }
