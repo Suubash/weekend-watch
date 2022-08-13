@@ -5,6 +5,7 @@ import styles from "../styles/category.module.css";
 import Thumbnail from "../components/Thumbnail";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import classnames from "classnames";
+import MovieContext from "../contexts/MovieContext";
 
 interface Props {
   url: string;
@@ -13,8 +14,15 @@ interface Props {
 
 const Category = (props: Props) => {
   const { url, title } = props;
+  const { addMovies } = React.useContext(MovieContext);
 
   const { movies } = useMovies(url);
+
+  React.useEffect(() => {
+    addMovies(movies.results);
+
+    return () => {};
+  }, [movies]);
 
   const moviesRowRef = React.useRef<HTMLDivElement>(null);
 
