@@ -12,6 +12,8 @@ import SwiperCore, { Autoplay, Pagination } from "swiper";
 SwiperCore.use([Autoplay]);
 
 function Banner() {
+  const [searchTerm, setSearchTerm] = React.useState<string>("");
+
   const navigate = useNavigate();
   const { movieState } = React.useContext(MovieContext);
   const { topTrendings } = movieState;
@@ -54,9 +56,10 @@ function Banner() {
               className={styles.searchInput}
               type="search"
               placeholder="Search for movies, tv shows, and person"
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button
-              onClick={() => navigate("/search")}
+              onClick={() => navigate(`/search?query=${searchTerm}`)}
               className={styles.searchButton}
             >
               Search

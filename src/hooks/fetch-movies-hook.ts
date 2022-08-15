@@ -11,6 +11,7 @@ const useMovies = (url: string) => {
   return {
     movies: data,
     isLoading: !error && !data,
+    error,
   };
 };
 
