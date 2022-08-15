@@ -8,6 +8,10 @@ import requests from "../utils/request-movies";
 const Category = React.lazy(() => import("../components/Category"));
 
 const Home = () => {
+  const [isMovie, setIsMovie] = React.useState<boolean>(true);
+
+  // React.useEffect(() => {}, [isMovie]);
+
   return (
     <>
       <Banner />
@@ -15,10 +19,24 @@ const Home = () => {
         <div className={styles.title}>
           <h2>What&apos;s popular</h2>
           <div className={styles.buttonSlider}>
-            <button className={classNames(styles.button, styles.buttonActive)}>
+            <button
+              className={classNames(
+                styles.button,
+                isMovie && styles.buttonActive
+              )}
+              onClick={() => setIsMovie(true)}
+            >
               Streaming
             </button>
-            <button className={styles.button}>On TV</button>
+            <button
+              className={classNames(
+                styles.button,
+                !isMovie && styles.buttonActive
+              )}
+              onClick={() => setIsMovie(false)}
+            >
+              On TV
+            </button>
           </div>
         </div>
       </div>
@@ -26,7 +44,7 @@ const Home = () => {
       {/* Movie section */}
       <div className={styles.category}>
         <React.Suspense fallback={<Loader />}>
-          <Category url={requests.fetchTrending} />
+          <Category url={requests.fetchTrending} isMovie={isMovie} />
 
           {/* <Category title="Top Horrors" url={requests.fetchRomanceMovies} /> */}
         </React.Suspense>

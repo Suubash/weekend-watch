@@ -22,11 +22,12 @@ export interface Movie {
 
 export interface MovieState {
   topTrendings: Movie[];
-  netflixOriginals: Movie[];
-  topRated: Movie[];
-  actionMovies: Movie[];
-  comedyMovies: Movie[];
-  horrorMovies: Movie[];
-  romanceMovies: Movie[];
-  documentaries: Movie[];
+  tvShows: Movie[];
+  // netflixOriginals: Movie[];
+  // topRated: Movie[];
+  // actionMovies: Movie[];
+  // comedyMovies: Movie[];
+  // horrorMovies: Movie[];
+  // romanceMovies: Movie[];
+  // documentaries: Movie[];
 }

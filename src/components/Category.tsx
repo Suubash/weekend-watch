@@ -10,16 +10,32 @@ import MovieContext from "../contexts/MovieContext";
 interface Props {
   url: string;
   title?: string;
+  isMovie?: boolean;
 }
 
 const Category = (props: Props) => {
-  const { url, title } = props;
-  const { addMovies } = React.useContext(MovieContext);
-
+  const { url, title, isMovie } = props;
   const { movies } = useMovies(url);
 
+  const { addMovies, addTvShows } = React.useContext(MovieContext);
+
+  const mediaTypeTv: Movie[] = movies.results.filter(
+    (movie: Movie) => movie.media_type === "tv"
+  );
+
+  const mediaTypeMovies: Movie[] = movies.results.filter(
+    (movie: Movie) => movie.media_type === "movie"
+  );
+
+  const [shows, setShows] = React.useState<Movie[]>(mediaTypeMovies);
+
   React.useEffect(() => {
-    addMovies(movies.results);
+    !isMovie ? setShows(mediaTypeTv) : setShows(mediaTypeMovies);
+  }, [isMovie]);
+
+  React.useEffect(() => {
+    addMovies(mediaTypeMovies);
+    addTvShows(mediaTypeTv);
 
     return () => {};
   }, [movies]);
@@ -52,7 +68,7 @@ const Category = (props: Props) => {
           <FaCaretLeft className={styles.icon} />
         </div>
         <div ref={moviesRowRef} className={styles.moviesContainer}>
-          {movies.results.map((movie: Movie) => (
+          {shows.map((movie: Movie) => (
             <Thumbnail key={movie.id} {...movie} />
           ))}
         </div>

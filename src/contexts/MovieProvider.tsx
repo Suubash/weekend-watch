@@ -5,13 +5,14 @@ import { movieReducer } from "./movieReducer";
 
 const INITIAL_STATE: MovieState = {
   topTrendings: [],
-  netflixOriginals: [],
-  topRated: [],
-  actionMovies: [],
-  comedyMovies: [],
-  horrorMovies: [],
-  romanceMovies: [],
-  documentaries: [],
+  tvShows: [],
+  // netflixOriginals: [],
+  // topRated: [],
+  // actionMovies: [],
+  // comedyMovies: [],
+  // horrorMovies: [],
+  // romanceMovies: [],
+  // documentaries: [],
 };
 
 interface Props {
@@ -22,11 +23,15 @@ const MovieProvider = ({ children }: Props) => {
   const [movieState, dispatch] = React.useReducer(movieReducer, INITIAL_STATE);
 
   const addMovies = (movie: Movie[]) => {
-    dispatch({ type: "ADD_MOVIE", payload: movie });
+    dispatch({ type: "ADD_MOVIES", payload: movie });
+  };
+
+  const addTvShows = (movie: Movie[]) => {
+    dispatch({ type: "ADD_TV_SHOWS", payload: movie });
   };
 
   return (
-    <MovieContext.Provider value={{ movieState, addMovies }}>
+    <MovieContext.Provider value={{ movieState, addMovies, addTvShows }}>
       {children}
     </MovieContext.Provider>
   );
