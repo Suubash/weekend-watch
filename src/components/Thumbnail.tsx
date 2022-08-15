@@ -25,6 +25,7 @@ const Thumbnail = (movie: Movie) => {
             readonly
             allowHalfIcon
             size={16}
+            fillColor="#ECCD22"
             ratingValue={Number(movie.vote_average) * 10}
           />
         </div>

@@ -29,7 +29,7 @@ function Banner() {
           modules={[Pagination]}
           className="my-swiper"
         >
-          {topTrendings.map((movie) => (
+          {topTrendings.slice(0, 6).map((movie) => (
             <SwiperSlide key={movie.id}>
               <div className="slides">
                 <img

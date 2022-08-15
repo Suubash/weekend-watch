@@ -48,8 +48,16 @@
 
 .swiper-pagination-bullet {
   z-index: 20;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+
+  opacity: 48%;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #ec2227;
+  width: 25px;
+  border-radius: 20px;
+  opacity: 1;
 }
