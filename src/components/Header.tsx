@@ -9,9 +9,9 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.linksWrapper}>
         <div className={styles.leftLinks}>
-          <div>
+          <div className={styles.logoContainer}>
             <Link to="/">
-              <img src={logo} alt="Weekend Watch" />
+              <img className={styles.logo} src={logo} alt="Weekend Watch" />
             </Link>
           </div>
           <nav className={styles.navLinks}>
@@ -21,7 +21,7 @@ function Header() {
             <Link to="/more">More</Link>
           </nav>
         </div>
-        <div className={styles.navLinks}>
+        <div className={styles.rightNavLinks}>
           <Link to="/login">Log In</Link>
           <Link to="/join-us">Join Us</Link>
           <BsSearch className={styles.searchIcon} />
