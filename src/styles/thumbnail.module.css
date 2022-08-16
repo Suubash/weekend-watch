@@ -8,6 +8,7 @@
   height: 239px;
   overflow: hidden;
   border-radius: 10px;
+  box-shadow: 0 3px 6px 0 #00000046;
 }
 
 .posterImage {
