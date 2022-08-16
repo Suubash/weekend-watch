@@ -1,0 +1,59 @@
+.modalContainer {
+  position: absolute;
+  background-color: #ffffff;
+  color: #000000;
+  max-width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+
+  box-shadow: 6px 6px 20px 3px #00000046;
+  text-align: left;
+  /* display: flex; -> toggles from style property */
+  gap: 30px;
+  align-items: stretch;
+  justify-content: space-between;
+
+  transition: all 1s ease-in-out;
+}
+
+.iconContainer {
+  background-color: #4a4a4a;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  /* float: right; */
+}
+
+.iconContainer:hover {
+  opacity: 0.9;
+}
+
+.closeIcon {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+}
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  align-items: start;
+  gap: 10px;
+
+  height: 100%;
+}
+
+.errorIcon {
+  min-width: 30px;
+  min-height: 30px;
+  color: #ec2227;
+}

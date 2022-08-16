@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "../styles/Swiper.css";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
+import Modal from "./Modal";
 
 SwiperCore.use([Autoplay]);
 
@@ -19,6 +20,14 @@ function Banner() {
   const { topTrendings } = movieState;
 
   // w440_and_h660_face => low quality poster images
+  const hanleNavigateToSearch = () => {
+    searchTerm !== ""
+      ? navigate(`/search?query=${searchTerm}`)
+      : setVisible(true);
+  };
+
+  const [visible, setVisible] = React.useState<boolean>(true);
+
   return (
     <div className={styles.banner}>
       <div className="swiper-container">
@@ -48,6 +57,7 @@ function Banner() {
       </div>
 
       <div className={styles.bannerContentContainer}>
+        <Modal visible={visible} setVisible={setVisible} />
         <div className={styles.bannerContent}>
           <h1>Welcome to the weekend watch </h1>
           <p>Millions of Movies, TV Shows and many more</p>
@@ -59,7 +69,7 @@ function Banner() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button
-              onClick={() => navigate(`/search?query=${searchTerm}`)}
+              onClick={hanleNavigateToSearch}
               className={styles.searchButton}
             >
               Search
