@@ -24,7 +24,7 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div>
+        <div className={styles.section}>
           <h3>THE BASICS</h3>
           <ul className={styles.links}>
             <li>About Weekend Watch</li>
@@ -33,7 +33,7 @@ function Footer() {
             <li>API</li>
           </ul>
         </div>
-        <div>
+        <div className={styles.section}>
           <h3>GET INVOLVED</h3>
           <ul className={styles.links}>
             <li>Contribution Guideline</li>
@@ -41,7 +41,7 @@ function Footer() {
             <li>Add New TV Show</li>
           </ul>
         </div>
-        <div>
+        <div className={styles.section}>
           <h3>COMMUNITY</h3>
           <ul className={styles.links}>
             <li>Guidelines</li>
@@ -50,7 +50,7 @@ function Footer() {
             <li>Twitter</li>
           </ul>
         </div>
-        <div>
+        <div className={styles.section}>
           <h3>LEGAL</h3>
           <ul className={styles.links}>
             <li>Terms of use</li>
