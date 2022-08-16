@@ -40,11 +40,13 @@
 .bannerContent > h1 {
   font-family: "Gilroy";
   font-size: 47px;
+  line-height: 63px;
 }
 
 .bannerContent > p {
   font-size: 20px;
   margin-top: 33px;
+  line-height: 23px;
 }
 
 .searchContainer {
@@ -53,9 +55,14 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 6px;
+  padding: 19px 0;
+  padding-left: 30px;
+  padding-right: 6px;
   border-radius: 40px;
   margin-top: 33px;
+
+  width: 835px;
+  height: 56px;
 }
 
 .searchInput {
@@ -69,6 +76,7 @@
 
 .searchInput::placeholder {
   font-size: 15px;
+  line-height: 23px;
 }
 .searchButton {
   width: 133px;
